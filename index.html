@@ -3,10 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title></title>
-		<meta name="description" content="" />
+		<title>Daniil Kovalenok</title>
+		<meta name="description" content="Personal page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" type="image/png" href="favicon.ico" />
 	</head>
 	<body>
 		<canvas width="2000" height="2000" id="canvas"></canvas>
@@ -55,14 +56,11 @@
 				ctx.moveTo(start[0], start[1]);
 				let lastX = start[0];
 				let lastY = start[1];
-				// canvas.width / step + 1
 				for (let i = 1; i < canvas.width / step + 10; i++) {
 					let x = i * step;
 					let y = start[1] + series(x);
 					let y2 = start[1] + series(x);
-					// ctx.fillRect(x, y, 10, 10);
 					ctx.bezierCurveTo(lastX / 2 + x / 2, lastY, lastX / 2 + x / 2, y, x, y);
-					// ctx.lineTo(x, y);
 					lastX = x;
 					lastY = y;
 				}
@@ -74,7 +72,7 @@
 			gradient.addColorStop(0.65, "rgba(255, 0, 255, 0.25)");
 			gradient.addColorStop(1, "rgba(0, 128, 255, 0.5)");
 
-			let seriesCount = 3;
+			let seriesCount = 2;
 			let seriesArray = Array(seriesCount)
 				.fill(0)
 				.map(() => genRandomSeries(115, 8));
@@ -85,7 +83,7 @@
 				ctx.strokeStyle = gradient;
 				ctx.lineWidth = 50;
 				ctx.filter = "blur(1px)";
-				shift -= 0.01; // bug: eventually the shift will be greater than the width of the rendered series
+				shift -= 0.01;
 
 				seriesArray.forEach((series, i) => {
 					ctx.translate(shift, 0);
@@ -107,7 +105,6 @@
 					return (x) => series(x + parallax(x) + 0.0021);
 				});
 
-				//document.body.style.backgroundImage = "url(" + canvas.toDataURL() + ")";
 				window.requestAnimationFrame(animate);
 			}
 			animate(0);

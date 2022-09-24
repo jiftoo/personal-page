@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
-/* import normal and light open sans from googlefonts */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 
 body,
@@ -36,14 +35,23 @@ main {
 	transform: translateY(-70px);
 }
 
-@keyframes fadeInLeft {
-	0% {
-		opacity: 0;
-		transform: translateX(-20px);
+@media (prefers-reduced-motion) {
+	main > * {
+		opacity: 1 !important;
+		animation: none !important;
 	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
+}
+
+@media not all and (prefers-reduced-motion) {
+	@keyframes fadeInLeft {
+		0% {
+			opacity: 0;
+			transform: translateX(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
 	}
 }
 
