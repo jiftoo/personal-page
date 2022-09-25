@@ -32,7 +32,7 @@ main {
 	color: #555;
 	z-index: 1;
 
-	transform: translateY(-115px);
+	transform: translateY(-100px);
 }
 
 @media (prefers-reduced-motion) {
