@@ -7,4 +7,4 @@ call pnpx html-minifier --collapse-whitespace --remove-comments --remove-optiona
 call pnpx clean-css-cli -O2 style.css > build/style.css
 call pnpx terser index.js -o build/index.js
 
-echo "Done"
+echo Done
