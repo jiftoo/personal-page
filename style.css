@@ -32,7 +32,7 @@ main {
 	color: #555;
 	z-index: 1;
 
-	transform: translateY(-70px);
+	transform: translateY(-100px);
 }
 
 @media (prefers-reduced-motion) {
@@ -62,10 +62,27 @@ h1 {
 
 	color: rgb(30, 30, 30);
 
-	margin-bottom: 1rem;
+	margin-bottom: 0;
 
 	opacity: 0;
 	animation: fadeInLeft 0.4s ease-out forwards;
+}
+
+ul {
+	list-style: none;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+
+	opacity: 0;
+	animation: fadeInLeft 0.4s ease-out 0.1s forwards;
+}
+
+li {
+	height: 36px;
 }
 
 h2 {
@@ -76,7 +93,7 @@ h2 {
 	margin-bottom: 1.5em;
 
 	opacity: 0;
-	animation: fadeInLeft 0.4s ease-out 0.1s forwards;
+	animation: fadeInLeft 0.4s ease-out 0.2s forwards;
 }
 
 p {
@@ -84,17 +101,17 @@ p {
 }
 p:nth-last-child(3) {
 	opacity: 0;
-	animation: fadeInLeft 0.4s ease-out 0.2s forwards;
+	animation: fadeInLeft 0.4s ease-out 0.3s forwards;
 }
 
 p:nth-last-child(2) {
 	opacity: 0;
-	animation: fadeInLeft 0.4s ease-out 0.3s forwards;
+	animation: fadeInLeft 0.4s ease-out 0.4s forwards;
 }
 
 p:nth-last-child(1) {
 	opacity: 0;
-	animation: fadeInLeft 0.4s ease-out 0.4s forwards;
+	animation: fadeInLeft 0.4s ease-out 0.5s forwards;
 }
 
 a {
