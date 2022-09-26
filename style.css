@@ -32,11 +32,15 @@ main {
 	color: #555;
 	z-index: 1;
 
-	transform: translateY(-100px);
+	box-shadow: inset 0 0 5em 0.01em #0003;
+}
+
+div {
+	transform: translateY(-90px);
 }
 
 @media (prefers-reduced-motion) {
-	main > * {
+	main > div > * {
 		opacity: 1 !important;
 		animation: none !important;
 	}
@@ -74,6 +78,7 @@ ul {
 	margin-bottom: 0.5rem;
 
 	display: flex;
+	justify-content: center;
 	gap: 1rem;
 	padding: 0;
 
