@@ -23,6 +23,8 @@ const scrollMaxValue = () => {
 window.addEventListener("scroll", () => {
 	const scrolled = Math.min(window.scrollY / scrollMaxValue(), 1);
 
+    document.getElementById("angle").classList.add("yeet");
+
 	const animations = document.getAnimations();
 	const MIN_SCROLL = 0.2;
 	if (scrolled > MIN_SCROLL) {

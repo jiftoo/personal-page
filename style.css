@@ -56,7 +56,7 @@ main {
 }
 
 @media (prefers-reduced-motion) {
-	main > div > * {
+	main > * {
 		opacity: 1 !important;
 		animation: none !important;
 	}
@@ -86,8 +86,16 @@ main {
 	/*! name used in js */
 	@keyframes rotate-canvas {
 		100% {
-			transform: perspective(1000px) scale(2.5, 2) translate(200px, 200px) rotate3d(0.4, 1, 0, 50deg);
+			transform: perspective(1000px) scale(2.5, 2) translate(10%, 200px) rotate3d(0.4, 1, 0, 50deg);
 			filter: blur(5px);
+		}
+	}
+	@keyframes bounce {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(-10px);
 		}
 	}
 }
@@ -167,6 +175,20 @@ main > div {
 	justify-content: center;
 }
 
+#angle {
+	translate: 0 -150%;
+	filter: invert(20%) sepia(80%) saturate(3312%) hue-rotate(291deg) brightness(500%) contrast(138%);
+	animation: bounce 0.8s ease-in-out infinite alternate;
+}
+
+#angle.yeet {
+    opacity: 0;
+    translate: 0 -300%;
+    transition: opacity translate;
+    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+}
+
 #offset {
 	transform: translateY(-100px);
 }
@@ -212,7 +234,7 @@ main > div {
 	#about-me > div {
 		flex-direction: column;
 		align-items: center;
-		width: 100%;
+        min-width: unset;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
