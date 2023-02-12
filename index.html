@@ -12,19 +12,51 @@
 		<script src="index.js" defer></script>
 	</head>
 	<body>
+		<div id="vignette"></div>
 		<canvas width="2000" height="2000" id="canvas"></canvas>
 		<main>
-			<div>
-				<h1>DANIIL KOVALENOK</h1>
-				<ul>
-					<li><img title="Javascript" alt="Javascript logo" src="javascript.svg" height="36" /></li>
-					<li><img title="ReactJS" alt="ReactJS logo" src="react.svg" height="36" /></li>
-					<li><img title="Rust" alt="Rust logo" src="rust.svg" height="36" /></li>
-				</ul>
-				<h2>Freelance Full-stack Developer</h2>
-				<p><a href="https://github.com/jiftoo/">GitHub</a></p>
-				<p><a href="https://www.linkedin.com/in/daniil-kovalyonok-jiftoo">LinkedIn</a></p>
-				<p><a href="mailto:contact@jiftoo.dev">contact@jiftoo.dev</a></p>
+			<div id="summary">
+				<div id="offset">
+					<h1>DANIIL KOVALENOK</h1>
+					<ul>
+						<li><img title="TypeScript" alt="TypeScript logo" src="typescript.svg" height="42" /></li>
+						<li><img title="Svelte" alt="Svelte logo" src="svelte.svg" height="42" /></li>
+						<li><img title="ReactJS" alt="ReactJS logo" src="react.svg" height="42" /></li>
+						<li><img title="Rust" alt="Rust logo" src="rust.svg" height="42" /></li>
+					</ul>
+					<h2>Freelance Full-stack Developer</h2>
+					<p><a href="#about-me">About me</a></p>
+					<p><a href="https://github.com/jiftoo/">GitHub</a></p>
+					<p><a href="https://www.linkedin.com/in/daniil-kovalyonok-jiftoo">LinkedIn</a></p>
+					<p><a href="mailto:contact@jiftoo.dev">contact@jiftoo.dev</a></p>
+				</div>
+			</div>
+			<div id="about-me">
+				<div id="plaque" class="hidden">
+					<img src="https://www.gravatar.com/avatar/7339b77d4ca53f18dd23c2c1405d9349" alt="Daniil Kovalenok" />
+					<div>
+						<p>Hi, I'm Daniil Kovalenok, a freelance full-stack developer from Russia.</p>
+						<p>
+							I'm a <span style="font-weight: bolder; color: #3178c6">TypeScript</span> and <span style="font-weight: bolder; color: black">Rust</span> enthusiast. I
+							love to work with <span style="font-weight: bolder; color: #61dafb">ReactJS</span>, and <span style="font-weight: bolder; color: #ff3e00">Svelte</span>.
+							However, I've also worked with a number of tools and languages including Python, C, C++, C#, Java, PHP, Assembly, Unity, Godot, Node, and Deno.
+						</p>
+						<p>
+							I am studying to get a Bachelor's degree in Data Science and Business Analytics. My goal is to expand my knowledge in the field of machine learning and
+							mathematics in order to apply scientific solutions to programming problems.
+						</p>
+						<p>I have worked on a number of projects, including:
+							<ul>
+								<li><a href="https://jiftoo.dev/gif/">jiftoo.dev/gif</a> - a web app that allows you to caption GIFs</li>
+								<li><a href="https://github.com/jiftoo/imgopt">imgopt</a> - a cli tool that re-encodes images in a directory</li>
+								<li><a href="https://github.com/jiftoo/evoimage">EvoImage</a> - a program that uses a genetic algorithm to build images from triangles</li>
+								<li><a href="https://github.com/jiftoo/evoimage">EvoImage</a> - a program that uses a genetic algorithm to build images from triangles</li>
+								<li><a href="https://github.com/jiftoo/Typespeed">Typespeed</a> - a typeracer-like game</li>
+								<li><a href="https://github.com/jiftoo/markov-chain">markov-chain</a> - a cli tool to generate text using a Markov chain</li>
+							</ul>
+						</p>
+					</div>
+				</div>
 			</div>
 		</main>
 	</body>

@@ -2,11 +2,44 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 window.addEventListener("resize", () => {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	ctx.fillStyle = "whitesmoke";
+	console.log(document.documentElement.clientWidth);
+	canvas.width = document.documentElement.clientWidth;
+	canvas.height = document.documentElement.clientHeight;
+	ctx.fillStyle = getComputedStyle(document.body).backgroundColor;
 });
 window.dispatchEvent(new Event("resize"));
+
+const scrollMaxValue = () => {
+	const body = document.body;
+	const html = document.documentElement;
+
+	const documentHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+	const windowHeight = window.innerHeight;
+
+	return documentHeight - windowHeight;
+};
+
+window.addEventListener("scroll", () => {
+	const scrolled = Math.min(window.scrollY / scrollMaxValue(), 1);
+
+	const animations = document.getAnimations();
+	const MIN_SCROLL = 0.2;
+	if (scrolled > MIN_SCROLL) {
+		const animation = animations.find((x) => x.animationName == "fadeInBottom");
+		if (animation) {
+			const maxTime = animation.effect.getTiming().duration;
+			const time = ((scrolled - MIN_SCROLL) * (maxTime - 0)) / (1 - MIN_SCROLL) + 0;
+			animation.currentTime = time;
+		}
+	}
+
+	const canvasAnimation = animations.find((x) => x.animationName == "rotate-canvas");
+	if (canvasAnimation) {
+		const maxTime = canvasAnimation.effect.getTiming().duration;
+		canvasAnimation.currentTime = maxTime * scrolled;
+	}
+});
 
 function genRandomSeries(steps, mag) {
 	let randomValues = Array(steps)
@@ -61,7 +94,6 @@ function animate(time) {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.strokeStyle = gradient;
 	ctx.lineWidth = 50;
-	ctx.filter = "blur(1px)";
 	shift -= 0.01;
 
 	seriesArray.forEach(([add, series], i) => {
@@ -72,7 +104,6 @@ function animate(time) {
 
 	ctx.lineWidth = 10;
 	ctx.strokeStyle = "rgba(255,255,255,0.2)";
-	let trBack = 40;
 	seriesArray.forEach(([add, series], i) => {
 		ctx.translate(shift, 0);
 		renderSeries(series, i, add);
